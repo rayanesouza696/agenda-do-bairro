@@ -63,7 +63,7 @@ Promover o acesso à cultura por meio de uma plataforma digital que divulga ativ
 https://cultura-no-bairro-we-0o3v.bolt.host
 
 **Repositório GitHub:**  
-[Inserir o link do repositório]
+https://github.com/rayanesouza696/agenda-do-bairro
 
 ## 👥 Integrantes
 
