@@ -1,0 +1,12 @@
+import { useState, useEffect } from 'react';
+import { Menu, X, Building2 } from 'lucide-react';
+
+const links = [{ href: '#inicio', label: 'Início' }, { href: '#agenda', label: 'Agenda' }, { href: '#oficinas', label: 'Oficinas' }, { href: '#galeria', label: 'Galeria' }, { href: '#contato', label: 'Contato' }];
+
+export default function Navbar() {
+  const [aberto, setAberto] = useState(false);
+  const [scrollado, setScrollado] = useState(false);
+  useEffect(() => { const onScroll = () => setScrollado(window.scrollY > 30); window.addEventListener('scroll', onScroll); return () => window.removeEventListener('scroll', onScroll); }, []);
+  const handleClick = () => setAberto(false);
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrollado ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-purple-900/5' : 'bg-transparent'}`}><nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="flex items-center justify-between h-16 md:h-20"><a href="#inicio" className="flex items-center gap-2 group" onClick={handleClick}><div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform"><Building2 className="w-5 h-5 text-white" /></div><span className={`font-bold text-lg md:text-xl transition-colors ${scrollado ? 'text-purple-900' : 'text-white'}`}>CCSP</span></a><ul className="hidden md:flex items-center gap-1">{links.map((link) => <li key={link.href}><a href={link.href} className={`px-4 py-2 rounded-lg font-medium text-sm transition-all hover:bg-purple-100/70 ${scrollado ? 'text-purple-900' : 'text-white hover:text-white'}`}>{link.label}</a></li>)}</ul><button className="md:hidden p-2 rounded-lg transition-colors" onClick={() => setAberto(!aberto)} aria-label={aberto ? 'Fechar menu' : 'Abrir menu'}>{aberto ? <X className={`w-6 h-6 ${scrollado ? 'text-purple-900' : 'text-white'}`} /> : <Menu className={`w-6 h-6 ${scrollado ? 'text-purple-900' : 'text-white'}`} />}</button></div></nav><div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${aberto ? 'max-h-96' : 'max-h-0'}`}><ul className="bg-white/98 backdrop-blur-md px-4 pb-4 pt-2 space-y-1 shadow-lg">{links.map((link) => <li key={link.href}><a href={link.href} onClick={handleClick} className="block px-4 py-3 rounded-lg font-medium text-purple-900 hover:bg-purple-100 transition-colors">{link.label}</a></li>)}</ul></div></header>;
+}
