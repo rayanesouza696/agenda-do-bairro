@@ -67,8 +67,8 @@ https://github.com/rayanesouza696/agenda-do-bairro
 
 ## 👥 Integrantes
 
-rayane de souza silva 
-paulo henrique teles 
+Rayane De Souza Silva 
+Paulo Henrique Teles Laurenti
 
 ## 🎥 Vídeo de apresentação
 
